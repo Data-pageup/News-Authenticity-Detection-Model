@@ -1,99 +1,74 @@
-Fake vs Real News Detection
+#  Fake vs Real News Detection
 
-🌐 Live Demo
+[Live Demo](https://fake-real-newz.streamlit.app/) 
 
-Project Overview
+[Dataset](https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset?select=True.csv)
 
-This project classifies news articles as Fake or Real using both Machine Learning and Deep Learning approaches.
-It combines TF-IDF features for classical models with LSTM embeddings to capture word order and context for improved accuracy.
+---
 
-Fake news detection is critical in today’s digital era to prevent misinformation from spreading.
+## **Project Overview**
 
-Dataset
+This project classifies news articles as **Fake** or **Real** using **Machine Learning** and **Deep Learning** approaches.  
 
-Source: Kaggle - Fake and Real News Dataset
+The pipeline uses **TF-IDF features** for classical models and **LSTM embeddings** for deep learning to capture context and improve accuracy.  
 
-Columns:
+Detecting fake news is crucial in today’s digital era to prevent misinformation from spreading.
 
-title : Headline of the news article
+---
 
-text : Full content of the article
+## **Dataset**
 
-label : 0 → Fake, 1 → Real
+- **Source:** [Fake and Real News Dataset - Kaggle](https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset?select=True.csv)  
+- **Process:**
+  1. Two separate datasets: one for **Fake news** and one for **Real news**  
+  2. Combined both into a single dataset  
+  3. Cleaned the combined dataset (lowercasing, removing punctuation/special characters, stopwords, and optional lemmatization)
 
-Project Workflow
+- **Columns:**
+  | Column   | Description |
+  |----------|-------------|
+  | `title`  | Headline of the news article |
+  | `text`   | Full content of the article |
+  | `subject`| Category/subject of the news |
+  | `date`   | Date of publication |
+  | `label`  | 0 → Fake, 1 → Real |
 
-1. Data Cleaning
+---
 
-Lowercased all text
+## **Project Workflow**
 
-Removed punctuation, special characters, and stopwords
+### 1. Data Cleaning
+- Combined Fake and Real news datasets into one  
+- Lowercased all text  
+- Removed punctuation, special characters, and stopwords  
+- Optional lemmatization  
 
-Optional lemmatization
+### 2. Exploratory Data Analysis (EDA)
+- WordClouds for Fake vs Real news to visualize frequent words  
+- Checked class distribution  
 
-2. Exploratory Data Analysis (EDA)
+### 3. Feature Engineering
+- Combined `title + text_clean` for richer feature representation  
+- Extracted **TF-IDF features** (top 5000 unigrams and bigrams)  
 
-WordClouds for Fake and Real news to visualize frequent words
+### 4. Classical Machine Learning Models
+| Model | Accuracy | Precision | Recall | F1-Score |
+|-------|----------|----------|--------|----------|
+| Logistic Regression | ~0.99 | 0.99 | 0.99 | 0.99 |
+| Random Forest | ~0.998 | 1.0 | 1.0 | 1.0 |
 
-Checked class distribution
+### 5. Deep Learning: LSTM with Embeddings
+- Tokenized and padded sequences  
+- Model architecture: **Embedding → LSTM → Dense → Sigmoid**  
+- Validation Accuracy after 4 epochs: **~0.992**  
 
-3. Feature Engineering
+| Epoch | Train Accuracy | Validation Accuracy |
+|-------|----------------|------------------|
+| 1 | 0.9086 | 0.9858 |
+| 2 | 0.9861 | 0.9850 |
+| 3 | 0.9886 | 0.9878 |
+| 4 | 0.9900 | 0.9916 |
 
-Created combined features: title + text_clean
-
-Extracted TF-IDF features (top 5000 unigrams and bigrams)
-
-4. Classical Machine Learning Models
-
-Logistic Regression → Accuracy ~0.99
-
-Random Forest → Accuracy ~0.998
-
-5. Deep Learning: LSTM with Embeddings
-
-Tokenized and padded sequences
-
-Model architecture: Embedding → LSTM → Dense → Sigmoid
-
-Validation Accuracy after 4 epochs: ~0.992
-
-Installation
-
-Clone the repository:
-
-git clone https://github.com/yourusername/fake-news-detection.git
-cd fake-news-detection
-
-
-Install dependencies:
-
-pip install -r requirements.txt
-
-
-Run the Jupyter notebook:
-
-jupyter notebook model.ipynb
+---
 
 
-Or launch the Streamlit app:
-
-streamlit run app.py
-
-
-🌐 Live Demo
-
-Key Highlights
-
-Combined title + text for richer feature representation
-
-Tested classical ML models (Logistic Regression, Random Forest)
-
-Implemented deep learning LSTM model with embeddings
-
-Achieved validation accuracy ~0.992
-
-Fully reproducible pipeline suitable for deployment
-
-License
-
-This project is open-source and available under the MIT License.
