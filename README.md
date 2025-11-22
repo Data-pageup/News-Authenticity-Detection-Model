@@ -5,7 +5,7 @@
 [Dataset](https://www.kaggle.com/datasets/clmentbisaillon/fake-and-real-news-dataset?select=True.csv)
 
 ---
-
+ 
 ## **Project Overview**
 
 This project classifies news articles as **Fake** or **Real** using **Machine Learning** and **Deep Learning** approaches.  
