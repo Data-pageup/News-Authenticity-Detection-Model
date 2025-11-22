@@ -1,4 +1,4 @@
-#  Fake vs Real News Detection
+#  News Authenticity Detection
 
 [Live Demo](https://fake-real-newz.streamlit.app/) 
 
