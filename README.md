@@ -56,7 +56,7 @@ Detecting fake news is crucial in today’s digital era to prevent misinformatio
 |-------|----------|----------|--------|----------|
 | Logistic Regression | ~0.99 | 0.99 | 0.99 | 0.99 |
 | Random Forest | ~0.998 | 1.0 | 1.0 | 1.0 |
-
+ 
 ### 5. Deep Learning: LSTM with Embeddings
 - Tokenized and padded sequences  
 - Model architecture: **Embedding → LSTM → Dense → Sigmoid**  
